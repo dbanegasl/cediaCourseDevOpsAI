@@ -1,0 +1,68 @@
+{
+  "fases": [
+    {
+      "id": 1,
+      "titulo": "1. Plan & Repo",
+      "log": "git init && git remote add origin https://github.com/...",
+      "resumen": "Base en la Tierra. Inicialización del repositorio Git. Planificación de requerimientos y arquitectura del sistema antes del primer commit."
+    },
+    {
+      "id": 2,
+      "titulo": "2. Develop",
+      "log": "git checkout -b feature/orbital-ui",
+      "resumen": "Comienza el viaje. Desarrollo de código en ramas aisladas (branches). Cada feature se trabaja sin afectar la rama principal."
+    },
+    {
+      "id": 3,
+      "titulo": "3. Commit & Push",
+      "log": "git commit -m 'feat: orbital simulator' && git push",
+      "resumen": "La nave acelera. Los cambios se guardan localmente y se envían al repositorio remoto. Los webhooks de GitHub disparan el pipeline automáticamente."
+    },
+    {
+      "id": 4,
+      "titulo": "4. CI Pipeline",
+      "log": "Ejecutando: npm install && npm run build && npm test",
+      "resumen": "Aproximación lunar. El servidor de Integración Continua compila el código en un entorno limpio de contenedores Docker y verifica que todo funcione."
+    },
+    {
+      "id": 5,
+      "titulo": "5. Testing & IA",
+      "log": "npm run test && codeql analyze --language=javascript",
+      "resumen": "Órbita lunar. Ejecución de pruebas unitarias e integración. CodeQL y GitHub Advanced Security escanean el código en busca de vulnerabilidades SAST."
+    },
+    {
+      "id": 6,
+      "titulo": "6. Build Artifact",
+      "log": "docker build -t ghcr.io/user/app:v1.0.0 && docker push",
+      "resumen": "Preparando el retorno. La aplicación se empaqueta en una imagen Docker inmutable y se publica en GitHub Container Registry (GHCR) con etiquetas semánticas."
+    },
+    {
+      "id": 7,
+      "titulo": "7. CD Deploy",
+      "log": "Deploying to GitHub Pages... Done. URL: https://user.github.io/repo",
+      "resumen": "Reentrada a la Tierra. Despliegue Continuo. La nueva versión aterriza automáticamente en producción (GitHub Pages) tras cada push exitoso a main."
+    },
+    {
+      "id": 8,
+      "titulo": "8. Monitoreo",
+      "log": "Status: OK | Dependabot alerts: 2 | CodeQL issues: 1",
+      "resumen": "Misión completada. La aplicación está viva. Dependabot vigila las dependencias y CodeQL monitorea el código. El ciclo DevOps comienza de nuevo."
+    }
+  ],
+  "productos": [
+    { "id": 1, "nombre": "Cohete Artemis I", "categoria": "Exploración Lunar", "precio": 4100000000, "stock": 1 },
+    { "id": 2, "nombre": "Traje Espacial EMU", "categoria": "Equipamiento EVA", "precio": 12000000, "stock": 5 },
+    { "id": 3, "nombre": "Módulo Lunar LEM", "categoria": "Exploración Lunar", "precio": 650000000, "stock": 2 },
+    { "id": 4, "nombre": "Satélite de Comunicación", "categoria": "Infraestructura Orbital", "precio": 290000000, "stock": 3 },
+    { "id": 5, "nombre": "Rover Lunar Perseverance", "categoria": "Exploración Lunar", "precio": 2700000000, "stock": 1 },
+    { "id": 6, "nombre": "Estación Espacial Gateway", "categoria": "Infraestructura Orbital", "precio": 8000000000, "stock": 1 },
+    { "id": 7, "nombre": "Cámara de Alta Resolución", "categoria": "Instrumentación", "precio": 450000, "stock": 12 },
+    { "id": 8, "nombre": "Panel Solar Plegable", "categoria": "Infraestructura Orbital", "precio": 1200000, "stock": 20 }
+  ],
+  "categorias": [
+    { "id": 1, "nombre": "Exploración Lunar", "descripcion": "Vehículos y módulos para misiones a la superficie lunar" },
+    { "id": 2, "nombre": "Infraestructura Orbital", "descripcion": "Estaciones, satélites y componentes para órbita terrestre y lunar" },
+    { "id": 3, "nombre": "Equipamiento EVA", "descripcion": "Trajes y herramientas para actividades extravehiculares" },
+    { "id": 4, "nombre": "Instrumentación", "descripcion": "Sensores, cámaras y equipos científicos de medición" }
+  ]
+}
