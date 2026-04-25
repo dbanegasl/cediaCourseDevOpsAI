@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión Artemis — Curso DevOps IA</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <!-- Contenedor de Estrellas -->
+    <div id="star-container"></div>
+
+    <!-- Lienzo del Espacio (SVG) -->
+    <svg id="universe" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
+        <defs>
+            <radialGradient id="earthGrad" cx="30%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#4facfe" />
+                <stop offset="60%" stop-color="#002244" />
+                <stop offset="100%" stop-color="#000b18" />
+            </radialGradient>
+            <radialGradient id="moonGrad" cx="30%" cy="30%" r="70%">
+                <stop offset="0%" stop-color="#dddddd" />
+                <stop offset="70%" stop-color="#555555" />
+                <stop offset="100%" stop-color="#222222" />
+            </radialGradient>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
+
+        <!-- Ruta Orbital (Figura 8) -->
+        <path id="orbit-path" class="orbit-path"
+              d="M 300,220
+                 C 500,220 500,380 700,380
+                 A 80,80 0 1,0 700,220
+                 C 500,220 500,380 300,380
+                 A 80,80 0 1,0 300,220" />
+
+        <!-- Etiquetas de Planetas -->
+        <text x="300" y="415" fill="#4facfe" font-size="14" text-anchor="middle" font-weight="bold" letter-spacing="2">TIERRA (LOCAL)</text>
+        <text x="700" y="415" fill="#dddddd" font-size="14" text-anchor="middle" font-weight="bold" letter-spacing="2">LUNA (PROD)</text>
+
+        <!-- La Tierra -->
+        <circle cx="300" cy="300" r="80" fill="url(#earthGrad)" filter="url(#glow)"/>
+
+        <!-- La Luna -->
+        <circle cx="700" cy="300" r="40" fill="url(#moonGrad)" filter="url(#glow)"/>
+
+        <!-- La Nave (Artemis) -->
+        <g id="ship" transform="translate(300, 220) rotate(0)">
+            <path id="flame" d="M -12 -5 L -25 0 L -12 5 Z" fill="#00ffcc" opacity="0.8">
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="0.2s" repeatCount="indefinite" />
+            </path>
+            <path d="M -12 -10 L 18 0 L -12 10 Z" fill="#ffffff" filter="url(#glow)" />
+            <polygon points="-12,-10 -6,-15 2,-5" fill="#4facfe" />
+            <polygon points="-12,10 -6,15 2,5" fill="#4facfe" />
+        </g>
+    </svg>
+
+    <!-- Título Central -->
+    <div id="main-title-container">
+        <div class="main-title">Curso CEDIA DevOps CI/CD</div>
+        <div class="sub-title">Potenciado con IA</div>
+    </div>
+
+    <!-- Panel de Tripulación -->
+    <div id="crew-panel">
+        <div class="crew-logo-top">🌐 CEDIA</div>
+        <div class="crew-list">
+            <div class="crew-member">
+                <span class="crew-role">Profe 1</span>
+                <span class="crew-name">Jordan Murillo</span>
+            </div>
+            <div class="crew-member">
+                <span class="crew-role">Profe 2</span>
+                <span class="crew-name">Diego Quisi</span>
+            </div>
+            <div class="crew-member">
+                <span class="crew-role">Alumno</span>
+                <span class="crew-name">Daniel Banegas</span>
+            </div>
+        </div>
+        <div class="crew-logo-bottom">🎓 UNAE</div>
+        <div class="crew-version">v.1.0</div>
+        <div class="crew-controls" id="crew-controls">
+            <button class="control-btn nav-btn" id="btn-prev" title="Fase Anterior">⏮</button>
+            <button class="control-btn" id="btn-toggle-play" title="Pausar Misión">⏸</button>
+            <button class="control-btn nav-btn" id="btn-next" title="Fase Siguiente">⏭</button>
+        </div>
+    </div>
+
+    <!-- Panel de UI Glassmorphism -->
+    <div id="ui-panel">
+        <div class="header">
+            <div class="mission-title">Telemetría de Misión</div>
+            <div class="phase-title" id="ui-title">Iniciando...</div>
+        </div>
+        <div class="terminal-log" id="ui-log">Conectando a sistemas...</div>
+        <div class="summary" id="ui-summary">Sincronizando con base de datos. Preparando despegue del proyecto.</div>
+        <div class="indicators" id="ui-indicators"></div>
+    </div>
+
+    <!-- Panel de Catálogo (visible solo cuando la API responde) -->
+    <div id="catalog-panel">
+        <div class="catalog-header">
+            <span class="catalog-icon">🛸</span>
+            <span>Catálogo Orbital</span>
+            <span id="catalog-badge" class="catalog-badge">API</span>
+        </div>
+        <div id="catalog-content"></div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
