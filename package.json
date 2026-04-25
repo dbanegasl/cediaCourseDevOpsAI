@@ -1,0 +1,16 @@
+{
+  "name": "cedia-devops-ai",
+  "version": "1.0.0",
+  "description": "Simulador Orbital Artemis — Curso DevOps IA CEDIA",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "lodash": "4.17.4"
+  },
+  "devDependencies": {
+    "jest": "26.0.0"
+  }
+}
